@@ -12,6 +12,9 @@ dev_path = spacy_path + dev_data
 train_path_changer = "--paths.train "+data_path
 
 dev_path_changer = "--paths.dev "+dev_path
+
+print("training data: " ,train_path_changer)
+print("evaluation data: " ,dev_path_changer)
 verbose = "--verbose"
 
 
