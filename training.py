@@ -12,8 +12,8 @@ def run(model_name, gpu = False, train = False):
     spacy_path = "spacy_data/"
 
     
-    dev_data = "corpus_First_HAREM.spacy"
-    train_data = "corpus_paramopama+second_harem.spacy"
+    dev_data = "custom_eval.spacy"
+    train_data = "custom_train.spacy"
 
     data_path = spacy_path + train_data
     dev_path = spacy_path + dev_data
@@ -37,4 +37,4 @@ def run(model_name, gpu = False, train = False):
     if train:
         os.system(train_cmd)
 
-run("par_harem1", gpu = False, train = True)
+run("custom_training", gpu = False, train = True)

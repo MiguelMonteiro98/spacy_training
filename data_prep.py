@@ -5,7 +5,7 @@ prep_dir = "prep_data/"
 
 def prep_data(file):
     print("Preparing ", file)
-    data_list = open(data_dir + file).readlines()
+    data_list = open(data_dir + file, encoding='utf-8').readlines()
     result = []
 
     tags = {
@@ -30,7 +30,7 @@ def prep_data(file):
         result.append(data)
 
 
-    with open(prep_dir + file, "w") as fp:
+    with open(prep_dir + file, "w", encoding='utf-8') as fp:
         fp.writelines(result)
 
     os.system("python -m spacy convert "+prep_dir + file+" spacy_data/ -c ner -n 10")
@@ -38,3 +38,5 @@ def prep_data(file):
 prep_data("corpus_First_HAREM.txt")
 prep_data("corpus_Paramopama.txt")
 prep_data("corpus_paramopama+second_harem.txt")
+prep_data("custom_eval.txt")
+prep_data("custom_train.txt")

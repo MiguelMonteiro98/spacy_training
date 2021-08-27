@@ -37,7 +37,6 @@
    - **harem1_par**
      - training set: harem 1
      - evaluation set: paramonpana + second harem
-     - 
    - **par_harem1**
      - training set: paramonpana + second harem
      - evaluation set: harem 1
@@ -47,6 +46,10 @@
    - **pa_harem2**
      - training set: paramonpana + second harem
      - evaluation set: paramonpana + second harem
+   - **custom_training**
+     - split the paramonpana + second harem in a traning and eval set, using a 0.8:0.2 ratio
+
+
 
 ## **Evaluation**
 
@@ -60,17 +63,19 @@ I also present a baseline for the 'LOC', 'ORG' and 'PER' labels available in the
 
 Precision and recall metrics are available in the metrics folder or on the **evaluate_nb.ipynb** , under each model file. Table only shows f-score for simplicity.
 
-| Model      | Eval dataset | Global f-s | LOC f-s | ORG f-s | TEMPO f-s | PER f-s | VALOR f-s |
-|------------|---------|:----------:|:-------:|:-------:|:---------:|:-------:|:---------:|
-| baseline   | harem1  |    0.397   |  0.575  |  0.325  |     0     |  0.550  |     0     |
-| harem1_par | harem1* |    0.871   |  0.886  |  0.827  |   0.783   |  0.939  |   0.832   |
-| harem1_par | par_h2  |    0.642   |  0.764  |  0.521  |   0.576   |  0.652  |     0     |
-| par_harem1 | harem1  |    0.569   |  0.705  |  0.535  |   0.473   |  0.603  |     0     |
-| par_harem1 | par_h2* |    0.856   |  0.894  |  0.756  |   0.820   |  0.887  |     0     |
-| harem1     | harem1* |    0.981   |  0.982  |  0.974  |   0.978   |  0.990  |   0.980   |
-| harem1     | par_h2  |    0.600   |  0.720  |  0.478  |   0.605   |  0.619  |     0     |
-| pa_harem2  | harem1  |    0.550   |  0.667  |  0.550  |   0.434   |  0.595  |     0     |
-| pa_harem2  | par_h2* |    0.955   |  0.963  |  0.915  |   0.952   |  0.972  |     0     |
+| Model           | dataset | Global f-s | LOC f-s | ORG f-s | TEMPO f-s | PER f-s | VALOR f-s |
+|-----------------|---------|:----------:|:-------:|:-------:|:---------:|:-------:|:---------:|
+| baseline        | harem1  |    0.397   |  0.575  |  0.325  |     0     |  0.550  |     0     |
+| harem1_par      | harem1* |    0.871   |  0.886  |  0.827  |   0.783   |  0.939  |   0.832   |
+| harem1_par      | par_h2  |    0.642   |  0.764  |  0.521  |   0.576   |  0.652  |     0     |
+| par_harem1      | harem1  |    0.569   |  0.705  |  0.535  |   0.473   |  0.603  |     0     |
+| par_harem1      | par_h2* |    0.856   |  0.894  |  0.756  |   0.820   |  0.887  |     0     |
+| harem1          | harem1* |    0.981   |  0.982  |  0.974  |   0.978   |  0.990  |   0.980   |
+| harem1          | par_h2  |    0.600   |  0.720  |  0.478  |   0.605   |  0.619  |     0     |
+| pa_harem2       | harem1  |    0.550   |  0.667  |  0.550  |   0.434   |  0.595  |     0     |
+| pa_harem2       | par_h2* |    0.955   |  0.963  |  0.915  |   0.952   |  0.972  |     0     |
+| custom_training | harem1  |    0.562   |  0.705  |  0.553  |   0.409   |  0.615  |     0     |
+| custom_training | par_h2* |    0.879   |  0.903  |  0.794  |   0.863   |  0.904  |     0     |
 
 \* - model trained on the same dataset of the evaluation
 
@@ -81,9 +86,11 @@ when evaluated on the dataset they were not trained on. There is a slight advant
 
 This is possibly due to the impact of the 'VALOR' class in the training/evaluation.
 
-## **Next steps/ideas**
+## **Next steps/ideas (26-aug)**
  - Some weird entities are showing up, check displacy htmls to try to figure out what's going on.
+   - Nothing shows up on the docs
  - Try to find another dataset with the same labels and train (to get rid of the possible 'VALOR' impact)
    - So far, unsucessful
  - Split the pa_harem2 dataset in two - since it is quite large - and try to train with the split set as train/eval and check results on eval set?
+   - Not much of a difference
  - Hyperparameters?

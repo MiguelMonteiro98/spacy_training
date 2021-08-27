@@ -14,3 +14,5 @@ def get_labels(file):
 get_labels("data/corpus_First_HAREM.txt")
 get_labels("data/corpus_Paramopama.txt")
 get_labels("data/corpus_paramopama+second_harem.txt")
+get_labels("data/custom_eval.txt")
+get_labels("data/custom_train.txt")
