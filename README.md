@@ -1,5 +1,13 @@
 # spacy_training
 
+## **Scripts/Notebooks**
+ - data_labels: check which labels were available in each dataset
+ - data_prep: transform datasets to be in format to be converted to .spacy files
+ - data_test: quick printer to test if .spacy files are in order (labels, etc)
+ - training: script that runs a training on a train/test dataset
+ - evaluate_nb: notebook that runs spacy evaluation for each model
+ - split_ds: notebook used to split one of the datasets for a training/eval model
+
 ## **Directories**
 
 ### data
